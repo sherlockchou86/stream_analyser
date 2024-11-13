@@ -55,13 +55,20 @@ int main(int argc, char* argv[]) {
      * NAL type (int),
      * NAL type name (string)
     */
+    oss << std::setw(8) << std::setfill(' ') << "index"
+        << std::setw(8) << std::setfill(' ') << "i-index" 
+        << std::setw(16) << std::setfill(' ') << "i-offset"
+        << std::setw(8) << std::setfill(' ') << "length" 
+        << std::setw(24) << std::setfill(' ') << "start-flag"
+        << std::setw(16) << std::setfill(' ') << "nal-type"
+        << std::setw(24) << std::setfill(' ') << "nal-type-name" << std::endl;
     for (auto& nal: total_nal_units) {
         oss << std::setw(8) << std::setfill(' ') << total_index++
             << std::setw(8) << std::setfill(' ') << nal.index 
             << std::setw(16) << std::setfill(' ') << nal.offset
             << std::setw(8) << std::setfill(' ') << nal.nal_length 
-            << std::setw(16) << std::setfill(' ') << stream_analyser::to_hex(nal.start_bytes) << stream_analyser::to_hex(nal.head_bytes, false) 
-            << std::setw(4) << std::setfill(' ') <<  nal.nal_type
+            << std::setw(24) << std::setfill(' ') << stream_analyser::to_hex(nal.start_bytes) << stream_analyser::to_hex(nal.head_bytes, false) 
+            << std::setw(16) << std::setfill(' ') <<  nal.nal_type
             << std::setw(24) << std::setfill(' ') << nal.nal_type_name << std::endl;
     }
 

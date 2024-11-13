@@ -1,5 +1,12 @@
 a lightweight tool to analyse h264 and h265 raw stream, written by native C++, easy to integrate into your code. please refer to `main.cpp`
 
+## how to build ##
+```
+mkdir build && cd build
+cmake ..
+make -j8
+```
+
 ## result for h264 ##
 ```
 ./stream_analyser video.h264 h264
